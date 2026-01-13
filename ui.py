@@ -8,6 +8,9 @@ from botocore.exceptions import NoCredentialsError, ClientError
 import base64
 import os
 import io
+from dotenv import load_dotenv
+
+load_dotenv()
 
 st.set_page_config(page_title="Multi-Format Batch Dashboard", layout="wide")
 
@@ -17,10 +20,10 @@ DEFAULT_JSON_FILE = "s3_job_result_20260108_232054_dd1fdb79.json"
 # ------------------------------------------------------------------
 # --- AWS CREDENTIALS CONFIGURATION --------------------------------
 # ------------------------------------------------------------------
-AWS_ACCESS_KEY_ID = ""    
-AWS_SECRET_ACCESS_KEY = ""  
-AWS_REGION = ""
-BUCKET_NAME = ""
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID","")  
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY","") 
+AWS_REGION = os.getenv("AWS_REGION","")
+BUCKET_NAME = os.getenv("BUCKET_NAME","")
 
 
 
